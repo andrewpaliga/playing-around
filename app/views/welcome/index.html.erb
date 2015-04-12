@@ -1,4 +1,60 @@
-<h2>Hello World</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
+<style>
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+</style>
+    
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Paste the Kijiji URL you want to view...</h1>
+      </div>
+    <%= form_tag("/categories", method: "post") do %>
+
+
+            <div class="input-group">
+              <input name="url" type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+    <% end %>
+
+    <p class="text-muted text-center">All photos will be displayed for easy viewing.</p>
+
+    <p><a href="http://www.kijiji.ca/b-couch-futon/ontario/c238l9004">couches</a></p>
+
+    </div> <!-- /container -->
+
+
+

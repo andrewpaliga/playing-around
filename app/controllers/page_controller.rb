@@ -1,17 +1,6 @@
-require 'rubygems'
-require 'nokogiri'  
-require 'open-uri'
-
-class WelcomeController < ApplicationController
-
-  $current_page = 1
-  $url_page
+class PageController < ApplicationController
 
   def index
- 
-  end
-
-  def view
     $url_page = params[:url]
     hash_num = $url_page.to_s.split('/').last
     @base_url = $url_page.gsub(hash_num, "")
@@ -22,15 +11,13 @@ class WelcomeController < ApplicationController
     @ad_links = @page.css("table.regular-ad")
   end
 
-  def view_next
+  def show
     url = $url_page
     hash_num = url.to_s.split('/').last
     length_num = hash_num.length+2
     @page = url.insert(-length_num, '/page-'+$current_page.to_s)
     $current_page += 1
     @page = $url_page
-
-    
   end
 
 end

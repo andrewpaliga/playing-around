@@ -1,0 +1,3 @@
+  <% @images.zip(@ad_links).each do |image, link| %>  
+    <a href="http://kijiji.ca<%= link['data-vip-url'] %>"> <img src="<%= (image['src']).gsub('$_2.JPG', '$_35.JPG') %>"> </a>
+  <% end %>

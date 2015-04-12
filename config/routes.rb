@@ -1,9 +1,20 @@
 PlayingAround::Application.routes.draw do
+
+  resources :orders
+
+  resources :categories
+
+  get "page/index"
+  resources :welcome
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  post 'view' => 'welcome#view'
+  get 'view_next' => 'welcome#view_next'
+
+  get 'categories/:id/pages/:page' => 'categories#get_page'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

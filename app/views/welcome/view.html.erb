@@ -1,0 +1,36 @@
+
+    <div id="view-container" class="container" style='border:black solid 1px;'>
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="/">Go Back</a></li>
+        </ul>
+        <h3 class="text-muted"><%= @title %></h3>
+      </div>
+
+        <div id="images-container">
+          <% @images.zip(@ad_links).each do |image, link| %>  
+            <a href="http://kijiji.ca<%= link['data-vip-url'] %>"> <img src="<%= (image['src']).gsub('$_2.JPG', '$_35.JPG') %>"> </a>
+          <% end %>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p>&copy; Company 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+<script type="text/javascript">
+var category_id = <%= @category.id; %>
+var page = 2;
+
+$(window).scroll(function () { 
+   if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
+    append_images(category_id, page);
+    page++;
+      //Add something at the end of the page
+   }  
+});
+
+</script>
